@@ -1,18 +1,27 @@
 package jorge.br.com.fiap.controller;
 
+import jorge.br.com.fiap.model.Veiculo;
+import jorge.br.com.fiap.model.Viagem;
+
 public class ViagemControll {
 
+    Viagem viagem = new Viagem();
+    Veiculo veiculo = new Veiculo();
 
-    public ViagemControll() {
-    }
+    public String calculaTempo(Viagem viagem, Veiculo veiculo) {
 
-    public String calculaTempo(double distancia, double velMedia) {
-        double resultadoDecimal = distancia/velMedia;
+        double resultadoDecimal = viagem.getDistancia()/ veiculo.getVelocidadeMedia();
+
         int horas = (int) resultadoDecimal;
+
         double minutosDecimal = (resultadoDecimal - horas) * 60;
+
         int minutos = (int) minutosDecimal;
+
         String stringViagem = "Tempo estimado: " + horas + "h" + minutos + "m";
+
         return stringViagem;
+
     }
 
 }
